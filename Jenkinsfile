@@ -1,10 +1,10 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { docker { image 'php' } }
+    agent { docker { image 'dotnet' } }
     stages {
         stage('build') {
             steps {
-                sh 'php --version'
+                sh 'dotnet --version'
             }
         }
     }
