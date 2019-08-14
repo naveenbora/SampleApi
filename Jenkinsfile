@@ -1,13 +1,12 @@
 
-pipeline {
-    
+pipeline {    
     stages {
         stage('build') {
             steps {
                 sh 'dotnet bulid SampleApi.sln -p:configuration release=-v:n'
             }
         }
-        stage('Test'){
+        stage('test'){
             steps{
                 sh 'dotnet test'
             }
