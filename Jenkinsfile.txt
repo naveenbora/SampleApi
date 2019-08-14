@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'dotnet build SampleApi.sln -p:configuration=release -v:n'   
+            }
+        }
+
+    }
+}
