@@ -4,9 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SampleApi.Model;
-
-
-
 namespace SampleApi.Controllers
 {
     [Route("api/[controller]")]
