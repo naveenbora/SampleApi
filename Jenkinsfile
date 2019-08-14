@@ -1,10 +1,15 @@
-Jenkinsfile (Declarative Pipeline)
+
 pipeline {
     agent { docker { image 'dotnet' } }
     stages {
         stage('build') {
             steps {
-                sh 'dotnet --version'
+                sh 'dotnet bulid SampleApi.sln -p:configuration release=-v:n'
+            }
+        }
+        stage('Test'){
+            steps{
+                sh 'dotnet test'
             }
         }
     }
