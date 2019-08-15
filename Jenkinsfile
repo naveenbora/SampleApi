@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'dotnet build SampleApi.sln -p:configuration=release -v:n'   
+                sh 'dotnet build SampleApi.sln -p:configuration=release -v:n'   
             }
         }
         stage('Test'){
           steps  {
-                bat 'dotnet test'
+                sh 'dotnet test'
           }
        }
        stage('Publish'){
           steps  {
-                bat 'dotnet publish'
+                sh 'dotnet publish'
           }
           
        }
@@ -23,7 +23,7 @@ pipeline {
      post{
                 always{
                     archiveArtifacts '**'
-                    bat 'dotnet SampleApi/bin/Debug/netcoreapp2.2/SampleApi.dll'
+                    sh 'dotnet SampleApi/bin/Debug/netcoreapp2.2/SampleApi.dll'
                 }
                 
                 
