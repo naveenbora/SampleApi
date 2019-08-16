@@ -28,18 +28,13 @@ pipeline {
             }
             
         }
-        stage('Docker'){
-            steps{
-                
-                powershell(script:'docker build -t $IMAGENAME .')
-                
-                
-                
-                
-            }
+   
+    }
+    post{
+        success{
+             
+             powershell(script:'docker build --build-arg CONT_IMG_VER=SampleApi.dll -t $IMAGENAME .')
         }
-        
-        
     }
 
 }
