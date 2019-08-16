@@ -25,7 +25,7 @@ pipeline {
      post{
                 always{
                     archiveArtifacts '**'
-                    bat 'dotnet SampleApi/bin/Debug/netcoreapp2.2/SampleApi.dll'
+                    
                 }
                 
                 
