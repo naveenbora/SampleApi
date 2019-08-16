@@ -32,6 +32,8 @@ pipeline {
             steps{
                 
                 powershell(script:'docker build -t naveen .')
+                powershell(script:'docker push naveen')
+                
                 
             }
         }
