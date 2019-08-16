@@ -1,12 +1,10 @@
 pipeline {
     agent any
-    parameters{
-        string(name: "SOLUTIONNAME",defaultValue:"SampleApi.sln")
-    }
+   
     stages {
         stage('Build') {
             steps {
-                bat 'dotnet build ${params.SOLUTIONNAME} -p:configuration=release -v:n'   
+                bat 'dotnet build SampleApi.sln -p:configuration=release -v:n'   
             }
         }
         stage('Test'){
