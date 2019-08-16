@@ -26,7 +26,7 @@ pipeline {
                 success{
                     archiveArtifacts '**'
                     bat 'docker build -t %IMAGENAME% .'
-                    bat 'docker run -p 5005:80 %IMAGENAME% .'
+                    bat 'docker run -p 5006:80 %IMAGENAME% .'
                 }
                 
                 
