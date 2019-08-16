@@ -2,6 +2,7 @@ pipeline {
     agent any
     parameters{
         string(name:"IMAGENAME")
+        string(name:"DLL")
     }
     stages {
         stage('Build') {
@@ -25,7 +26,7 @@ pipeline {
      post{
                 success{
                     archiveArtifacts '**'
-                    bat 'docker build -t %IMAGENAME% .'
+                    bat 'docker build -t %IMAGENAME% --build-arg DLL_NAME= %DLL% .'
                     bat 'docker run -p 5006:80 %IMAGENAME% .'
                 }
                 
