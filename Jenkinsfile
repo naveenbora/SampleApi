@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        docker { image 'sampleapiimage' }
-    }
+    agent any
     parameters{
         string(name:"SOLUTIONNAME")
     }
