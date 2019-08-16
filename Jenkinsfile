@@ -23,8 +23,8 @@ pipeline {
        }
         stage('Archive'){
             steps  {
-                powershell(script:'compress-archive SampleApi publish.zip -Update')
-                archiveArtifacts artifacts: 'publish.zip'
+                
+                archiveArtifacts artifacts: 'SampleApi/bin/debug/netcoreapp2.2/publish/*.*',fingerprint:true
             }
             
         }
