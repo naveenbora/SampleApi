@@ -34,8 +34,7 @@ pipeline {
     post{
         success{
              
-             powershell(script:'docker build --build-arg NAME=$DLLNAME .')
-             powershell(script:'docker build -t $IMAGENAME .')
+             powershell(script:'docker build --build-arg NAME=$DLLNAME -t $IMAGENAME .')
             
         }
     }
