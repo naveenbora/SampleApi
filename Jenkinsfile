@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters{
-        string(name:"SOLUTIONNAME",defaultValue:"SampleApi.sln")
+        string(name:"SOLUTIONNAME")
     }
     stages {
         stage('Build') {
