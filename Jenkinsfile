@@ -27,7 +27,7 @@ pipeline {
                 success{
                     archiveArtifacts '**'
                     bat 'docker build -t %IMAGENAME% --build-arg DLL_NAME= %DLL% .'
-                    bat 'docker run -p 5006:80 %IMAGENAME% .'
+                    bat 'docker run -p 5007:80 %IMAGENAME% .'
                 }
                 
                 
