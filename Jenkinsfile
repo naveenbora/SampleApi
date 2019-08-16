@@ -35,7 +35,7 @@ pipeline {
         success{
              
              powershell(script:'docker build -t $IMAGENAME .')
-             powershell(script:'docker run -p 6000:80 $IMAGENAME .')
+             
 
         }
     }
