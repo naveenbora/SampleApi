@@ -2,32 +2,40 @@ pipeline {
     agent any
     parameters{
         string(name:"IMAGENAME")
-        string(name:"DLL")
+        
     }
     stages {
         stage('Build') {
             steps {
-                bat 'dotnet build '   
+                powershell(script: 'dotnet build ')   
             }
         }
         stage('Test'){
           steps  {
-                bat 'dotnet test'
+                powershell(script:'dotnet test')
           }
        }
        stage('Publish'){
           steps  {
-                bat 'dotnet publish'
+                powershell(script:'dotnet publish')
           }
           
        }
-      
+        stage('Archive'){
+            steps  {
+                powershell(script:'compress-archive webapi/artifacts publish.zip -Update')
+                archiveArtifacts artifacts: 'publish.zip'
+            }
+            
+        }
+        
+        
     }
      post{
                 success{
-                    archiveArtifacts '**'
-                    bat 'docker build -t %IMAGENAME% .'
-                    bat 'docker run -p 5007:80 %IMAGENAME% .'
+                    
+                   powershell(script:'docker build -t %IMAGENAME% .')
+                    powershell(script:'docker run -p 5007:80 %IMAGENAME% .')
                 }
                 
                 
