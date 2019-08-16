@@ -1,8 +1,7 @@
 pipeline {
     agent any
     parameters{
-        string(name:"IMAGENAME",defaultValue:"SampleApiImage")
-        string(name:"DLLNAME",defaultValue:"SampleApi.dll")
+        string(name:"IMAGENAME")
         
     }
     stages {
@@ -29,16 +28,15 @@ pipeline {
             }
             
         }
-   
-    }
-    post{
-        success{
-             
-            powershell(script:'docker build -t ${env.IMAGENAME} .')
-            powershell(script:'docker run -p 6000:80 ${env.IMAGENAME} .')
-             
-
+        stage('Docker'){
+            steps{
+                
+                powershell(script:'docker build -t ${env.IMAGENAME} .')
+                
+            }
         }
+        
+        
     }
 
 }
