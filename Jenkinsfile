@@ -23,7 +23,7 @@ pipeline {
       
     }
      post{
-                always{
+                success{
                     archiveArtifacts '**'
                     bat 'docker build -t sampleapiimage .'
                     bat 'docker run -p 5005:80 sampleapiimage .'
