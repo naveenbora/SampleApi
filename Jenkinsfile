@@ -28,16 +28,15 @@ pipeline {
             }
             
         }
+        stage('Docker'){
+            steps{
+                
+                powershell(script:'docker build -t HelloHiImage .')
+                powershell(script:'docker push HelloHiImage')
+            }
+        }
         
         
     }
-     post{
-                success{
-                    
-                   powershell(script:'docker build -t naveen .')
-                    powershell(script:'docker run -p 5008:80 naveen .')
-                }
-                
-                
-       }
+
 }
