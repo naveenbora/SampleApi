@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters{
-        string(name:"SOLUTIONNAME")
+        string(name:"IMAGENAME")
     }
     stages {
         stage('Build') {
@@ -25,8 +25,8 @@ pipeline {
      post{
                 success{
                     archiveArtifacts '**'
-                    bat 'docker build -t sampleapiimage .'
-                    bat 'docker run -p 5005:80 sampleapiimage .'
+                    bat 'docker build -t %IMAGENAME% .'
+                    bat 'docker run -p 5005:80 %IMAGENAME% .'
                 }
                 
                 
