@@ -31,7 +31,7 @@ pipeline {
         stage('Docker'){
             steps{
                 
-                powershell(script:'docker build -t naveen .')
+                powershell(script:'docker build -t $IMAGENAME .')
                 
                 
                 
