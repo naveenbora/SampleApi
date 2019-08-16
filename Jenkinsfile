@@ -32,7 +32,7 @@ pipeline {
             steps{
                 
                 powershell(script:'docker build -t HelloHiImage .')
-                powershell(script:'docker push HelloHiImage')
+                
             }
         }
         
