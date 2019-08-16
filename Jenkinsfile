@@ -33,7 +33,7 @@ pipeline {
     post{
         success{
              
-             powershell(script:'docker build --build-arg CONT_IMG_VER=SampleApi.dll -t $IMAGENAME .')
+             powershell(script:'docker build --build-arg NAME=SampleApi.dll -t $IMAGENAME .')
         }
     }
 
