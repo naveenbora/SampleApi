@@ -34,7 +34,8 @@ pipeline {
     post{
         success{
              
-             powershell(script:'docker build -t $IMAGENAME .')
+            powershell(script:'docker build -t ${env.IMAGENAME} .')
+            powershell(script:'docker run -p 6000:80 ${env.IMAGENAME} .')
              
 
         }
