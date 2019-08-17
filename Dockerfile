@@ -4,6 +4,6 @@ ARG NAME="Default"
 COPY ./publish .
 
 
-ENTRYPOINT ["dotnet", "${NAME}.DLL"]
+ENTRYPOINT ["dotnet", "${NAME}.dll"]
 
 
