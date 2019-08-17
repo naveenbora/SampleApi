@@ -8,7 +8,7 @@ pipeline {
         string(name:"TAGNAME",defaultValue:"api")
         
     }
-    
+    stages{
         stage('PULLDOCKER'){
             steps{
                 
@@ -17,6 +17,6 @@ pipeline {
         }
         
         
-    
+    }
 
 }
