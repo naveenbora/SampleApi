@@ -29,7 +29,7 @@ pipeline {
         stage('Archive'){
             steps  {
                 
-                archiveArtifacts artifacts: 'SampleApi/bin/Debug/netcoreapp2.2/publish/*.*',fingerprint:true
+                archiveArtifacts artifacts: 'publish/*.*',fingerprint:true
             }
             
         }
