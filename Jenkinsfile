@@ -22,7 +22,7 @@ pipeline {
        }
        stage('Publish'){
           steps  {
-                powershell(script:'dotnet publish')
+                powershell(script:'dotnet publish -c Release -o ../publish')
           }
           
        }
