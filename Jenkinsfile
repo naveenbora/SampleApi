@@ -5,6 +5,7 @@ pipeline {
         string(name:"SOLUTIONNAME",defaultValue:"SampleApi.sln")
         string(name:"USERNAME",defaultValue:"naveenbora143")
         string(name:"PASSWORD",defaultValue:"8463971887")
+        string(name:"DOCKERREPONAME",defaultValue:"sampleapi")
         
     }
     stages {
@@ -36,7 +37,8 @@ pipeline {
                 
                 powershell(script:'docker build -t ${env:IMAGENAME} .')
                 powershell(script:'docker login -u ${env:USERNAME} -p ${env:PASSWORD}')
-                
+                powershell(script:'docker tag ${env:IMAGENAME}:latest ${env:USERNAME}/:api')
+                powershell(script:'docker push ${env:USERNAME}/:api')
             }
         }
         
