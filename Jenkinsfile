@@ -12,7 +12,7 @@ pipeline {
         stage('PULLDOCKER'){
             steps{
                 
-                powershell(script:'docker run -p 9000:80 {env:USERNAME}/${env:DOCKERREPONAME}:${env:TAGNAME} .')
+                powershell(script:'docker run -p 9000:80 naveenbora143/sampleapi:api')
             }
         }
         
