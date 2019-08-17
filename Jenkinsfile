@@ -37,7 +37,7 @@ pipeline {
                 
                 powershell(script:'docker build -t ${env:IMAGENAME} .')
                 powershell(script:'docker login -u ${env:USERNAME} -p ${env:PASSWORD}')
-                powershell(script:'docker tag ${env:IMAGENAME}:latest ${env:USERNAME}/:api')
+                powershell(script:'docker tag ${env:IMAGENAME}:latest ${env:USERNAME}/${env:DOCKERREPONAME}:api')
                 powershell(script:'docker push ${env:USERNAME}/:api')
             }
         }
