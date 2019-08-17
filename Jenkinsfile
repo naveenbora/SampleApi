@@ -22,14 +22,14 @@ pipeline {
        }
        stage('Publish'){
           steps  {
-                powershell(script:'dotnet publish')
+                powershell(script:'dotnet publish -c Release -o ../publish')
           }
           
        }
         stage('Archive'){
             steps  {
                 
-                archiveArtifacts artifacts: 'SampleApi/bin/Debug/netcoreapp2.2/publish/*.*',fingerprint:true
+                archiveArtifacts artifacts: 'publish/*.*',fingerprint:true
             }
             
         }
