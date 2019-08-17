@@ -42,12 +42,7 @@ pipeline {
                 powershell(script:'docker push ${env:USERNAME}/${env:DOCKERREPONAME}:${env:TAGNAME}')
             }
         }
-        stage('REMOVEIMAGE')
-        {
-            steps{
-                powershell(script:'docker rmi ${env:USERNAME}/${env:DOCKERREPONAME}:${env:TAGNAME}')
-            }
-        }
+        
         stage('RUNREMOTELY')
         {
             steps{
