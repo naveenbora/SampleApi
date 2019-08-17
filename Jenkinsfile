@@ -4,7 +4,7 @@ pipeline {
         string(name:"IMAGENAME",defaultValue:"sampleapiimage")
         string(name:"SOLUTIONNAME",defaultValue:"SampleApi.sln")
         string(name:"USERNAME",defaultValue:"naveenbora143")
-        string(name:"PASSWORD",defaultValue:"8463971887")
+        password(name:"PASSWORD",defaultValue:"8463971887")
         string(name:"DOCKERREPONAME",defaultValue:"sampleapi")
         string(name:"TAGNAME",defaultValue:"api")
         
