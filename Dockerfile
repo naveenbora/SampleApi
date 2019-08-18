@@ -6,6 +6,5 @@ COPY ./publish .
 
 
 
-ENTRYPOINT ["dotnet", "SampleApi.dll"]
 
 
